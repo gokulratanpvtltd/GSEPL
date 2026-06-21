@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       EDIT: Page title (shows in the browser tab and Google results)
+       ============================================================ -->
+  <title>Gokul Ratan Sustainable Ecosolutions Private Limited — Project Landing Page</title>
+  <meta name="description" content="EDIT: one sentence describing your project for search engines." />
+
+  <!-- Fonts: a display face for headings + a clean body face -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       1. THEME — change these to rebrand the whole site.
+          Every color and font below is defined once here.
+       ============================================================ */
+    :root {
+      --ink:        #16181d;   /* main text color            */
+      --ink-soft:   #5b616e;   /* muted / secondary text     */
+      --bg:         #f7f8fa;   /* page background            */
+      --surface:    #ffffff;   /* cards, nav background      */
+      --line:       #e6e8ec;   /* borders / dividers         */
+      --accent:     #3b4ce8;   /* buttons, links, highlights */
+      --accent-ink: #ffffff;   /* text on top of accent      */
+      --accent-tint:#eef0fe;   /* soft accent background     */
+
+      --font-display: "Space Grotesk", system-ui, sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+
+      --max:    1080px;        /* content width              */
+      --radius: 14px;          /* roundness of corners       */
+    }
+
+    /* ============================================================
+       2. BASE — sensible defaults. You rarely need to touch this.
+       ============================================================ */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; letter-spacing: -0.02em; }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Reusable button */
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -8px var(--accent); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ============================================================
+       3. NAVBAR
+       ============================================================ */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--surface) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.03em; }
+    .logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: var(--ink-soft); font-size: 0.93rem; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+
+    .menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .menu-btn span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 4px 0; transition: .2s; }
+
+    /* ============================================================
+       4. HERO — the first thing visitors see
+       ============================================================ */
+    .hero { padding: 96px 0 80px; }
+    .eyebrow {
+      display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-tint); padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+    }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); max-width: 16ch; margin-bottom: 22px; }
+    .hero p { font-size: 1.15rem; color: var(--ink-soft); max-width: 52ch; margin-bottom: 34px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ============================================================
+       5. FEATURES — three cards describing what you offer
+       ============================================================ */
+    .section { padding: 80px 0; }
+    .section-head { max-width: 46ch; margin-bottom: 48px; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; }
+    .section-head p { color: var(--ink-soft); font-size: 1.05rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 30px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -20px rgba(0,0,0,.25); }
+    .card .icon {
+      width: 46px; height: 46px; border-radius: 11px;
+      background: var(--accent-tint); color: var(--accent);
+      display: grid; place-items: center; font-size: 1.4rem; margin-bottom: 18px;
+    }
+    .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { color: var(--ink-soft); font-size: 0.97rem; }
+
+    /* ============================================================
+       6. ABOUT / SPLIT SECTION
+       ============================================================ */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .split-visual {
+      aspect-ratio: 4 / 3; border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--accent) 0%, #6b78f5 100%);
+      display: grid; place-items: center; color: #fff; font-family: var(--font-display);
+      font-weight: 600; font-size: 1.1rem; text-align: center; padding: 24px;
+    }
+    .split h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 18px; }
+    .split p { color: var(--ink-soft); margin-bottom: 16px; }
+
+    /* ============================================================
+       7. CALL TO ACTION BAND
+       ============================================================ */
+    .cta-band {
+      background: var(--ink); color: #fff; border-radius: 20px;
+      padding: 60px 40px; text-align: center; margin: 40px 0;
+    }
+    .cta-band h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; }
+    .cta-band p { color: #b9bdc7; margin-bottom: 28px; font-size: 1.05rem; }
+
+    /* ============================================================
+       8. FOOTER
+       ============================================================ */
+    footer { border-top: 1px solid var(--line); padding: 40px 0; }
+    .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .foot p { color: var(--ink-soft); font-size: 0.9rem; }
+    .foot-links { display: flex; gap: 20px; }
+    .foot-links a { color: var(--ink-soft); font-size: 0.9rem; }
+    .foot-links a:hover { color: var(--accent); }
+
+    /* ============================================================
+       9. SCROLL REVEAL + MOBILE — leave as-is
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: var(--surface); border-bottom: 1px solid var(--line);
+        flex-direction: column; gap: 0; padding: 8px 0;
+        display: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { width: 100%; padding: 12px 24px; }
+      .menu-btn { display: block; }
+      .cards { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header>
+    <div class="wrap nav">
+      <!-- EDIT: your brand name -->
+      <div class="logo">Gokul Ratan <span>Sustainable Ecosolutions Private Limited</span></div>
+
+      <nav class="nav-links" id="navLinks">
+        <!-- EDIT: these links jump to sections further down the page -->
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-primary" style="padding:9px 18px;">Get started</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="wrap reveal">
+      <span class="eyebrow">Storage Devices for a safer, reliable and sustainable future</span>
+      <!-- EDIT: your main headline — keep it short and clear -->
+      <h1>Build something people actually want to use.</h1>
+      <!-- EDIT: one or two sentences explaining what your project does -->
+      <p>Gokul Ratan helps teams launch faster with tools that stay out of the way. Replace this text with a plain-language description of your project.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get started</a>
+        <a href="#features" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES ==================== -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Everything you need, nothing you don't</h2>
+        <p>EDIT: a sentence introducing the three things below.</p>
+      </div>
+      <div class="cards">
+        <!-- EDIT each card: swap the emoji icon, the title, and the text -->
+        <div class="card reveal">
+          <div class="icon">⚡</div>
+          <h3>Fast to set up</h3>
+          <p>Get running in minutes, not days. Describe the first benefit of your project here.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">🔒</div>
+          <h3>Reliable</h3>
+          <p>Built to be dependable. Describe the second benefit of your project here.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">📈</div>
+          <h3>Grows with you</h3>
+          <p>Scales as your needs do. Describe the third benefit of your project here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section" id="about">
+    <div class="wrap split">
+      <div class="reveal">
+        <h2>Why we built this</h2>
+        <!-- EDIT: the story behind your project -->
+        <p>Replace this with the story behind your project — the problem you saw and why you decided to solve it.</p>
+        <p>Keep it human and specific. Two short paragraphs is plenty here.</p>
+        <a href="#contact" class="btn btn-ghost" style="margin-top:8px;">Get in touch</a>
+      </div>
+      <!-- EDIT: replace this colored box with a real image later:
+           <img src="my-photo.jpg" alt="Description of the image" /> -->
+      <div class="split-visual reveal">Drop a product screenshot<br>or photo here</div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BAND ==================== -->
+  <section class="wrap" id="contact">
+    <div class="cta-band reveal">
+      <h2>Ready to get started?</h2>
+      <!-- EDIT: invite people to take the next step -->
+      <p>Replace this with a clear next step — sign up, email you, or try a demo.</p>
+      <!-- EDIT the email address below -->
+      <a href="mailto:hello@example.com" class="btn btn-primary">Email us</a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="wrap foot">
+      <p>© <span id="year"></span> Gokul Ratan Sustainable Ecosolutions Private Limited. <!-- EDIT brand name --></p>
+      <div class="foot-links">
+        <!-- EDIT: your real links / socials -->
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT (leave as-is) ==================== -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.addEventListener('click', e => {
+      if (e.target.tagName === 'A') navLinks.classList.remove('open');
+    });
+
+    // Auto-update the year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal sections as they scroll into view
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
